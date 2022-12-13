@@ -20,7 +20,7 @@ const char* email_password = "ofxaionjedbzsbfg";
 EMailSender emailSend(email_username, email_password);
 
 // Project start screen
-void game_start() {
+void program_start() {
   M5.Lcd.setTextSize(2);
   M5.Lcd.fillScreen(PURPLE);
   M5.Lcd.setTextColor(WHITE, PURPLE);
@@ -44,7 +44,7 @@ void game_start() {
 void setup() {
   M5.begin();     //Init M5Core
   M5.IMU.Init();  //Init IMU sensor
-  game_start();
+  program_start();
   M5.Lcd.fillScreen(WHITE);  //Set the screen background color to black
   M5.Lcd.setTextColor(BLACK, WHITE);  //Sets the foreground color and background color of the displayed text
   M5.Lcd.setTextSize(3);  //Set the font size
@@ -95,6 +95,7 @@ void loop() {
       }
       M5.Lcd.setCursor(80, 140);
       M5.Lcd.printf("Warning!");
+      M5.Spk.DingDong(); //play the sound
       M5.Axp.SetLDOEnable(3, true);  //Open the vibration.
   }else{
       if(isWhite == false){
